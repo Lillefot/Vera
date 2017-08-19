@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>KursKurt</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel ="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/rainbowvis.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+
+  <body>
+    <iframe src="http://script.studieradet.se/cas/cas2.php"></iframe>
+    <div>
+      <h2>Kurskurt</h2>
+        <form id="fKurtForm" method="post" action="">
+          <label>Vad tyckte du om föreläsningen "Hjärtat pumpar blod"?</label>
+        </br>
+          <input type="radio" id="q1r1" name="q1" value="1">Bra
+        </br>
+          <input type="radio" id="q1r2" name="q1" value="0">Dålig
+        </br>
+          <label for="q1comment">Kommentar</label>
+          <input type="text" id="q1comment" name="q1comment" value="test">
+        </br>
+          <label for="user">Användare</label>
+          <input type="text" id="user" name="user" value="">
+        </br>
+          <label for="semester">Termin</label>
+          <input type="text" id="semester" name="semester" value="1">
+        </br>
+          <label for="lectureID">Föreläsingsnamn</label>
+          <input type="text" id="lectureName" name="lectureName" value="Föreläsning 1">
+        </br>
+        <label for="courseID">KursID</label>
+        <input type="text" id="courseID" name="courseID" value="4">
+      </br>
+        </form>
+        <input type="button" value="submitForm()" onclick="submitForm();">
+
+        </br>
+
+        <form method="post" action="http://script.studieradet.se/kurskurt/sendNotification.php">
+          <input type="hidden" id="icsArray" name="icsArray" value="">
+          <input type="submit" value="sendNotificaiton.php">
+        </form>
+
+        </br>
+
+        <form method="post" action="http://script.studieradet.se/kurskurt/addLectures.php">
+          <label for="courseID">KursID</label>
+          <input type="text" id="courseID" name="courseID" value="4">
+        </br>
+          <input type="submit" value="addLectures.php">
+        </form>
+
+        </br>
+
+        <form method="post" action="http://script.studieradet.se/kurskurt/formFromDB.php">
+          <label for="courseID">formFromDB</label>
+        </br>
+          <input type="submit" value="formFromDB.php">
+        </form>
+
+        </br>
+          <input id="clickMe" type="button" value="haveAnswered" onclick="haveAnswered();"/>
+
+        </br>
+        <table id=resultsTable data-role="table" class="ui-responsive">
+        </table>
+    </div>
+  </body>
+</html>

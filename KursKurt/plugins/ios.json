@@ -1,0 +1,15 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.msr.kurskurt"
+        }
+    },
+    "dependent_plugins": {}
+}

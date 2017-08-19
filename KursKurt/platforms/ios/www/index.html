@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy"
+         content="frame-ancestors *">
+
+    <title>KursKurt</title>
+    <script src="cordova.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel ="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/rainbowvis.js"></script>
+    <script src="js/scripts.js"></script>
+
+  </head>
+
+  <body onLoad="onLoad();">
+    <!--- HOME --->
+    <div id="home" data-role="page">
+      <div data-role="header">
+        <h1>Hem</h1>
+      </div>
+      <div data-role="content">
+        <input type="button" value="Enkät" onclick="toForm();">
+        <br>
+        <input type="button" value="Resultat" onclick="toResults();">
+        <br>
+        <input type="button" value="Inställningar" onclick="toSettings();">
+      </div>
+    </div>
+
+    <!--- LOGIN --->
+    <div id="login" data-role="page">
+      <div data-role="header">
+        <a href="#home">Hem</a>
+        <h1>Login</h1>
+      </div>
+      <div data-role="content" id="iframeDiv">
+        <iframe id="loginiframe" style="width:320px; height:100%;"></iframe>
+      </div>
+      <div data-role="footer">
+      </div>
+    </div>
+
+    <!--- FORM --->
+    <div id="form" data-role="page">
+      <div data-role="header">
+        <a href="#home">Hem</a>
+        <h1>Enkät</h1>
+        <a onclick="toResults();">Resultat</a>
+      </div>
+      <div data-role="content">
+        <form id="fKurtForm" method="post" action="">
+          <h4>Kurs:</h4>
+          <p id="courseText" class="courseText"></p>
+          <input type="hidden" id="courseID" name="courseID">
+
+          <label for="lectureName">Föreläsing</label>
+          <div id="lectureSelector">
+            <select id="lectureName" name="lectureName">
+            </select>
+          </div>
+        </br>
+          <label>Hjälpte föreläsningen dig att uppnå följande mål?</label>
+        </br>
+          <label for="q1r1">Bra</label>
+          <input type="radio" id="q1r1" name="q1" value="1">
+          <label for="q1r2">Dålig</label>
+          <input type="radio" id="q1r2" name="q1" value="0">
+        </br>
+          <label for="q1comment">Kommentar</label>
+          <input type="text" name="q1comment" id="q1comment" placeholder="Kom ihåg att vara konstruktiv!">
+
+          <input type="hidden" name="user" id="user">
+        </form>
+        </br>
+        <input id="submitNewButton" type="button" value="Skicka in!" onclick="submitForm('new');"/></br>
+        <input id="submitUpdateButton" type="button" value="Uppdatera!" onclick="submitForm('update');"/>
+    </div>
+      <div data-role="footer">
+      </div>
+    </div>
+
+  <!--- RESULTS --->
+    <div id="results" data-role="page">
+      <div data-role="header">
+        <a href="#home">Hem</a>
+        <h1>Resultat</h1>
+      </div>
+      <div data-role="content">
+        <table id=resultsTable data-role="table" class="ui-responsive">
+        </table>
+      </div>
+      <div data-role="footer">
+        <h4>Vrid telefonen för mer information!</h4>
+      </div>
+    </div>
+
+    <!--- SETTINGS --->
+    <div id="settings" data-role="page">
+      <div data-role="header">
+        <a href="#home">Hem</a>
+        <h1>Inställningar</h1>
+      </div>
+      <div data-role="content">
+        <h3>Användare:</h3>
+        <p id="settingsUser"></p>
+        <input type="button" id="logInButton" value="Logga in!" onclick="location.href='#login';">
+        <input type="button" id="logOutButton" value="Logga ut!" onclick="clearUser();">
+        <h3>Kurs: </h3>
+        <h4 class="courseText"></h4>
+        <input type="button" id="changeCourse" value="Byt kurs!" onclick="changeCourse();">
+        <form>
+          <select name='courseSelect' id='courseSelect' disabled>
+          </select>
+        </form>
+        <h3>Notiser</h3>
+        <input type="button" id="scheduleNotifications" value="Ladda notiser!" onclick="scheduleNotifications();">
+      </div>
+      <div data-role="footer">
+      </div>
+    </div>
+  </body>
+</html>

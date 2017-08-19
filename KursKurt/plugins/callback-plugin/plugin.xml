@@ -1,0 +1,25 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.example.callback"
+        version="0.0.1">
+
+  <name>CallbackPlugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/widget">
+      <feature name="CallbackPlugin">
+        <param name="ios-package" value="CallbackPlugin" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/CallbackPlugin.h" target-dir="CallbackPlugin"/>
+    <source-file src="src/ios/CallbackPlugin.m" target-dir="CallbackPlugin"/>
+  </platform>
+
+</plugin>
