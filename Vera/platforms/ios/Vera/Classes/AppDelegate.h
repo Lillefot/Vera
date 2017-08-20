@@ -30,5 +30,5 @@
 #import <UserNotifications/UserNotifications.h>
 
 @interface AppDelegate : CDVAppDelegate <UNUserNotificationCenterDelegate>
-
+    
 @end
