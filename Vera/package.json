@@ -1,0 +1,17 @@
+{
+    "name": "com.msruu.vera",
+    "version": "1.0.0",
+    "displayName": "Vera",
+    "cordova": {
+        "platforms": [
+            "ios"
+        ],
+        "plugins": {
+            "onesignal-cordova-plugin": {}
+        }
+    },
+    "dependencies": {
+        "cordova-ios": "^4.4.0",
+        "onesignal-cordova-plugin": "^2.1.2"
+    }
+}

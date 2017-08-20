@@ -2,6 +2,7 @@ reated by https://www.gitignore.io/api/osx,xcode,androidstudio,apachecordova
 #Own Rules
 Certifikat/
 Scripts/databaseCredentials.php
+Scripts/sendNotification.php
 
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
