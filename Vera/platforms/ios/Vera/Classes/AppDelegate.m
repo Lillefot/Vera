@@ -33,7 +33,58 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     self.viewController = [[MainViewController alloc] init];
+    
+    //Create category for notification with action buttons
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    
+    UNMutableNotificationContent *content = [UNMutableNotificationContent new];
+    
+    
+    UNNotificationAction *goodAction = [UNNotificationAction actionWithIdentifier:@"Good"
+                                                                            title:@"Bra!" options:UNNotificationActionOptionNone];
+    UNNotificationAction *badAction = [UNNotificationAction actionWithIdentifier:@"Bad"
+                                                                           title:@"Dålig!" options: UNNotificationActionOptionNone];
+    UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"Vera"
+                                                                              actions:@[goodAction,badAction] intentIdentifiers:@[]
+                                                                              options:UNNotificationCategoryOptionNone];
+    NSSet *categories = [NSSet setWithObject:category];
+    [center setNotificationCategories:categories];
+    content.categoryIdentifier = @"Vera";
+    
+    NSLog((@"didFinishLaunchingWithOptions"));
+    
+    
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
+
+//Lets the app run JS in the background on notification response
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
+    
+    UIWebView * webView = (UIWebView *) self.viewController.webView;
+    
+    NSString *jsSetLectureName = @"setLectureName('');";
+    NSString *subtitle = response.notification.request.content.subtitle;
+    NSMutableString *jsSetLectureNameWithSubtitle = [NSMutableString stringWithString:jsSetLectureName];
+    [jsSetLectureNameWithSubtitle insertString:subtitle atIndex:16];
+    NSLog(@"%@", jsSetLectureNameWithSubtitle);
+    [webView stringByEvaluatingJavaScriptFromString:jsSetLectureNameWithSubtitle];
+    
+    NSString *jsFunction = @"submitFormFromLockScreen('');";
+    NSString *userChoice = response.actionIdentifier;
+    NSMutableString *jsFunctionWithChoice = [NSMutableString stringWithString:jsFunction];
+    [jsFunctionWithChoice insertString:userChoice atIndex:26];
+    NSLog(@"%@", jsFunctionWithChoice);
+    
+    
+    [webView stringByEvaluatingJavaScriptFromString:jsFunctionWithChoice];
+    
+    //Called to let your app know which action was selected by the user for a given notification.
+    NSLog((@"didReceiveNotifiacitonResponse"));
+    NSLog(@"ActionButtonPressed %@",response.actionIdentifier);
+    NSLog(@"Subtitle %@", response.notification.request.content.subtitle);
+    completionHandler();
+}
+
 
 @end

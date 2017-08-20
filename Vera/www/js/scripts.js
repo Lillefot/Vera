@@ -440,6 +440,8 @@ function listAllResults() {
     var tableCellEntriesTags = "<td class='entriesCell'> &#x1F465</td>";
     var tableCellAnsweredTags = "<td class='answeredCell'>&#x274C</td>";
     var colourGradient = new Rainbow();
+    var i = 1;
+    var wholeRowBackgroundColour = "#e9e9e9";
     colourGradient.setSpectrum('#ffaaaa', '#fffdaa', '#5bff4c');
 
     $('#resultsTable')
@@ -477,9 +479,18 @@ function listAllResults() {
       else {
         var hexColour = colourGradient.colourAt(resultPercent);
       }
-
+      if (i & 1){
+        i++;
+      }
+      else {
+        i++;
+        var wholeRowID = "#rowLectureID" + entry.lectureID;
+        $(wholeRowID).css('background-color', wholeRowBackgroundColour);
+        if (entry.changes){
+          $(wholeRowID).next().css('background-color', wholeRowBackgroundColour);
+        }
+      }
       var rowID = "#rowLectureID" + entry.lectureID + " td:first-child";
-      $(rowID).css('background-color', hexColour);
       $(rowID).css('background-color', hexColour);
 
     });
