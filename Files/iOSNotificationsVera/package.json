@@ -1,0 +1,24 @@
+{
+  "name": "iosNotificationsVera",
+  "version": "1.0.0",
+  "displayName": "Vera",
+  "cordova": {
+    "platforms": [],
+    "plugins": {
+      "onesignal-cordova-plugin": {}
+    }
+  },
+  "dependencies": {
+    "onesignal-cordova-plugin": "^2.1.2"
+  },
+  "description": "## Usage",
+  "devDependencies": {
+    "onesignal-cordova-plugin": "undefined2.1.2"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Måns Aspåker",
+  "license": "Apache 2.0"
+}

@@ -27,7 +27,6 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import "UserNotifications/UserNotifications.h"
 
 @implementation AppDelegate
 
@@ -56,7 +55,6 @@
     NSLog((@"didFinishLaunchingWithOptions"));
     
     
-
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
@@ -87,5 +85,6 @@
     NSLog(@"Subtitle %@", response.notification.request.content.subtitle);
     completionHandler();
 }
+
 
 @end

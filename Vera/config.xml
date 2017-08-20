@@ -10,6 +10,6 @@
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="onesignal-cordova-plugin" spec="^2.1.2" />
+    <engine name="ios" spec="~4.4.0" />
 </widget>
