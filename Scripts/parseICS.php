@@ -1,6 +1,6 @@
 <?php
-include 'ICal.php';
-include 'Event.php';
+include 'iCal/ICal.php';
+include 'iCal/Event.php';
 
 //Required to accept AJAX-request
 header('Access-Control-Allow-Origin: *');
@@ -16,7 +16,7 @@ use ICal\ICal;
 
 //Get courseID to be able to fetch correct .ics-file from server
 $courseID = $_GET['courseID'];
-$userCalendar = 'KursKurt' . $courseID . '.ics';
+$userCalendar = 'ics/KursKurt' . $courseID . '.ics';
 
 try {
     $ical = new ICal($userCalendar, array(

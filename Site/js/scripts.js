@@ -13,7 +13,7 @@ window.onload = function(){
   goodRadioButton = document.getElementById('q1r1');
   badRadioButton = document.getElementById('q1r2');
   goodBadChoice = null;
-  databasePHP = 'http://script.studieradet.se/kurskurt/database.php';
+  databasePHP = 'http://script.studieradet.se/vera/database.php';
 
 // Get userID from cas2.php via iframe login
   window.addEventListener('message',function(e) {
@@ -40,7 +40,7 @@ eventList = null;
 var parseICS = function(){
   console.log("parseICS");
   var xhr = new XMLHttpRequest();
-  var url = "http://script.studieradet.se/kurskurt/parseICS.php";
+  var url = "http://script.studieradet.se/vera/parseICS.php";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
   xhr.onreadystatechange = function () {
@@ -93,7 +93,7 @@ function submitForm() {
 function getResults() {
   var choice = document.getElementById('courseID').value;
   var xhr = new XMLHttpRequest();
-  var url = "http://script.studieradet.se/kurskurt/listResults.php";
+  var url = "http://script.studieradet.se/vera/listResults.php";
   var url = url + "?courseChoice=" + choice;
   xhr.onreadystatechange = function () {
       //Run on success
@@ -111,7 +111,7 @@ function haveAnswered() {
   var choice = document.getElementById('courseID').value;
   var user = document.getElementById('user').value;
   var xhr = new XMLHttpRequest();
-  var url = "http://script.studieradet.se/kurskurt/haveAnswered.php";
+  var url = "http://script.studieradet.se/vera/haveAnswered.php";
   var url = url + "?courseChoice=" + choice + "&user=" + user;
   xhr.onreadystatechange = function () {
       //Run on success
@@ -147,7 +147,7 @@ function markAnswered() {
 function getCount() {
   var choice = document.getElementById('courseID').value;
   var xhr = new XMLHttpRequest();
-  var url = "http://script.studieradet.se/kurskurt/countEntries.php";
+  var url = "http://script.studieradet.se/vera/countEntries.php";
   var url = url + "?courseChoice=" + choice;
   xhr.onreadystatechange = function () {
       //Run on success
