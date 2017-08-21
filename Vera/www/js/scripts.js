@@ -107,6 +107,8 @@ function onDeviceReady() {
   $('#lectureName').change(function(){
     //Clear form
     clearForm();
+    var chosenLecture = $('#lectureName').val();
+    getLectureGoalsFromDB(chosenLecture);
   });
 }
 
@@ -261,6 +263,7 @@ function toForm(lectureName){
   $('#submitUpdateButton').closest('.ui-btn').hide();
   //Get lectures depending on course chosen
   lectureSelectFromDB(window.localStorage.getItem("course"), lectureName);
+  getLectureGoalsFromDB(lectureName);
 }
 
 //Change page to settings
@@ -323,6 +326,46 @@ function lectureSelectFromDB(choice, fromResults) {
       else {
         console.warn(data);
         alert('Gick inte att ladda föreläsningar!');
+      }
+    }
+  });
+}
+
+//Get lecture goals from DB
+function getLectureGoalsFromDB(lectureName) {
+  console.log('getLectureGoalsFromDB');
+  var course = window.localStorage.getItem("course");
+  $.ajax({
+    url: 'http://script.studieradet.se/vera/getLectureGoals.php',
+    data: {lectureChoice: lectureName, courseChoice: course},
+    success: function(data){
+      if (data.indexOf('Error') < 0){
+        var goalArray = JSON.parse(data);
+        console.log(goalArray);
+        for (i=0;i<goalArray.data.length;i++){
+          if (goalArray.data[i][0].length > 0){
+            console.log("<0");
+            $('#lectureGoals')
+              .empty()
+              .append(goalArray.data[i]);
+          }
+          else {
+            $('#lectureGoals')
+              .empty()
+              .append("Inga mål inlagda för denna föreläsning");
+          }
+        }
+      }
+      else if (data.indexOf('failed') >= 0){
+        console.warn(data);
+        alert('Gick inte att få kontakt med databasen!');
+      }
+      else if (($('#lectureName').val()) === "Välj föreläsning!"){
+        console.log('No lecture selected!');
+      }
+      else {
+        console.warn(data);
+        alert('Gick inte att ladda mål!');
       }
     }
   });
