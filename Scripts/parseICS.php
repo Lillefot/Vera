@@ -16,7 +16,7 @@ use ICal\ICal;
 
 //Get courseID to be able to fetch correct .ics-file from server
 $courseID = $_GET['courseID'];
-$userCalendar = 'ics/KursKurt' . $courseID . '.ics';
+$userCalendar = 'ics/VeraCourseID' . $courseID . '.ics';
 
 try {
     $ical = new ICal($userCalendar, array(
