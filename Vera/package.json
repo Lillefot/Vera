@@ -7,11 +7,13 @@
             "ios"
         ],
         "plugins": {
-            "onesignal-cordova-plugin": {}
+            "onesignal-cordova-plugin": {},
+            "cordova-plugin-statusbar": {}
         }
     },
     "dependencies": {
         "cordova-ios": "^4.4.0",
+        "cordova-plugin-statusbar": "^2.2.3",
         "onesignal-cordova-plugin": "^2.1.2"
     }
 }

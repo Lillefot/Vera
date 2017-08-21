@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.msruu.vera"
+        },
         "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.msruu.vera"
         }

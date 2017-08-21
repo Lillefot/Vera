@@ -31,6 +31,11 @@ function onDeviceReady() {
   goodBadRadio = null;
   databasePHP = 'http://script.studieradet.se/vera/database.php';
 
+  //Statusbar setup
+  StatusBar.overlaysWebView(false);
+  StatusBar.styleDefault();
+  StatusBar.backgroundColorByHexString("#e9e9e9");
+
   //Get previous course choice and username from localStorage and set them in their respective elements
   setSettingsUser();
   setSettingsCourse();

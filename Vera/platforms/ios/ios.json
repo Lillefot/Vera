@@ -9,6 +9,18 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"OneSignalPush\"><param name=\"ios-package\" value=\"OneSignalPush\" /></feature>",
                             "count": 1
                         }
@@ -48,12 +60,23 @@
         }
     },
     "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.msruu.vera"
+        },
         "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.msruu.vera"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "id": "cordova-plugin-statusbar.statusbar",
+            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+            "pluginId": "cordova-plugin-statusbar",
+            "clobbers": [
+                "window.StatusBar"
+            ]
+        },
         {
             "id": "onesignal-cordova-plugin.OneSignal",
             "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
@@ -64,6 +87,7 @@
         }
     ],
     "plugin_metadata": {
+        "cordova-plugin-statusbar": "2.2.3",
         "onesignal-cordova-plugin": "2.1.2"
     }
 }

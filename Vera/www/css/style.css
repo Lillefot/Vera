@@ -2,6 +2,7 @@
   padding: 0 0 0 0;
 }
 
-/*tr:nth-child(even) {
-    background: #e9e9e9;
-}*/
+/* Smoother transition to statusbar */
+.ui-header {
+  border-top: none !important;
+}
