@@ -31,7 +31,7 @@ function onDeviceReady() {
   goodBadRadio = null;
   databasePHP = 'http://script.studieradet.se/vera/database.php';
 
-  //Statusbar
+  //Statusbar setup
   StatusBar.overlaysWebView(false);
   StatusBar.styleDefault();
   StatusBar.backgroundColorByHexString("#e9e9e9");
