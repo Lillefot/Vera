@@ -368,6 +368,7 @@ function toResults() {
     getCount();
   }
   else {
+    $('#resultsTable').empty();
     noCourseChosenDialog("Ingen kurs vald!", "Du måste välja en kurs för att kunna se resultaten. Vill du välja en kurs?");
   }
 }
