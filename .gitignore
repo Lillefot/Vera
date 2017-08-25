@@ -3,6 +3,7 @@ reated by https://www.gitignore.io/api/osx,xcode,androidstudio,apachecordova
 Certifikat/
 Scripts/databaseCredentials.php
 Scripts/sendNotification.php
+Files/iOS10-App-icon-template-EveryInteraction/
 
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
