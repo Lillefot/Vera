@@ -1,3 +1,4 @@
 {
-    "SystemConfiguration.framework": 1
+    "SystemConfiguration.framework": 1,
+    "AudioToolbox.framework": 1
 }

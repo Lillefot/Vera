@@ -50,7 +50,7 @@ function onDeviceReady() {
   var user = window.localStorage.getItem("user");
   document.getElementById('user').value = user;
   //Set username to appropriate elements
-  if ($('#settingsUser').is(':empty')) {
+  if ($('#settingsUser').text().indexOf('Ej inloggad') > -1) {
     setSettingsUser();
   }
   else {
@@ -107,7 +107,17 @@ function onDeviceReady() {
         var lectureName = $(this).children('.nameCell').text();
         console.log(lectureName);
         toForm(lectureName);
-    });
+  });
+
+  $(document).on("tap", "#changeCourse", function() {
+    event.preventDefault();
+    if (window.localStorage.getItem("user")){
+      changeCourse();
+    }
+    else {
+      notLoggedInDialog("Du är inte inloggad!", "Du måste logga in för att välja kurs. Vill du logga in?");
+    }
+  });
 
   $('#lectureName').change(function(){
     //Clear form
@@ -128,11 +138,51 @@ function notificationOpenedCallback(jsonData) {
 function setSettingsUser() {
   if (window.localStorage.getItem("user")) {
     console.log('localStorage user present');
-    $('#settingsUser').append(window.localStorage.getItem("user"));
+    $('#settingsUser')
+      .empty()
+      .append(window.localStorage.getItem("user"));
   }
   else {
     console.log('localStorage user not present');
-    alert("Ej inloggad!");
+    notLoggedInDialog("Du är inte inloggad!", "Vill du logga in?");
+  }
+}
+
+//Confirmation dialog which can take user to login page
+function notLoggedInDialog(title, message) {
+  navigator.notification.confirm(
+      message, // message
+      onConfirm,            // callback to invoke with index of button pressed
+      title,           // title
+      ['Nej','Ja']     // buttonLabels
+  );
+  function onConfirm(buttonIndex) {
+    if (buttonIndex === 2){
+      console.log(buttonIndex);
+      toLogin();
+    }
+    else {
+      console.log("User tapped: " + buttonIndex);
+    }
+  }
+}
+
+//Confirmation dialog which can take user to settings page to chose a course
+function noCourseChosenDialog(title, message) {
+  navigator.notification.confirm(
+      message, // message
+      onConfirm,            // callback to invoke with index of button pressed
+      title,           // title
+      ['Nej','Ja']     // buttonLabels
+  );
+  function onConfirm(buttonIndex) {
+    if (buttonIndex === 2){
+      console.log(buttonIndex);
+      toSettings();
+    }
+    else {
+      console.log("User tapped: " + buttonIndex);
+    }
   }
 }
 
@@ -145,7 +195,7 @@ function setSettingsCourse() {
     $('.courseText').append(window.localStorage.getItem("courseText"));
   }
   else {
-    alert('Ingen vald kurs!');
+    console.log("No course chosen!");
   }
 }
 
@@ -247,12 +297,30 @@ function submitFormFromLockScreen(choice) {
 //Clear username from elements and localStorage
 function clearUser() {
   if (window.localStorage.getItem("user")){
-  localStorage.removeItem('user');
-  $('#settingsUser').empty();
-  $('#user').val('');
-  //Show/hide login/logout buttons
-  $('#logOutButton').closest('.ui-btn').hide();
-  $('#logInButton').closest('.ui-btn').show();
+    localStorage.removeItem('user');
+    $('#settingsUser')
+      .empty()
+      .append('Ej inloggad');
+    $('#user').val('');
+    //Show/hide login/logout buttons
+    $('#logOutButton').closest('.ui-btn').hide();
+    $('#logInButton').closest('.ui-btn').show();
+    if (window.localStorage.getItem("course") && window.localStorage.getItem("courseText")) {
+      localStorage.removeItem('course');
+      localStorage.removeItem('courseText');
+      $('#courseID').val('');
+      $('.courseText')
+        .empty()
+        .append('');
+      $('#courseTextInSettings').append('Ingen kurs vald');
+      $('#courseSelect')
+        .val('')
+        .selectmenu('disable');
+      window.plugins.OneSignal.deleteTag("courseID");
+    }
+    else {
+      console.log("No course chosen!");
+    }
   }
   else {
     alert('Ingen användare inloggad!');
@@ -263,12 +331,17 @@ function clearUser() {
 //Add lectureName to make selector preselect chosen lecture
 function toForm(lectureName){
   $.mobile.changePage('#form')
+  if (window.localStorage.getItem("course")) {
+    $('#submitNewButton').closest('.ui-btn').show();
+    $('#submitUpdateButton').closest('.ui-btn').hide();
+    //Get lectures depending on course chosen
+    lectureSelectFromDB(window.localStorage.getItem("course"), lectureName);
+    getLectureGoalsFromDB(lectureName);
+  }
+  else {
+    noCourseChosenDialog("Ingen kurs vald!", "Du måste välja en kurs för att kunna skicka in enkäter. Vill du välja en kurs?");
+  }
 
-  $('#submitNewButton').closest('.ui-btn').show();
-  $('#submitUpdateButton').closest('.ui-btn').hide();
-  //Get lectures depending on course chosen
-  lectureSelectFromDB(window.localStorage.getItem("course"), lectureName);
-  getLectureGoalsFromDB(lectureName);
 }
 
 //Change page to settings
@@ -291,7 +364,16 @@ function toSettings() {
 //Change page to results
 function toResults() {
   $.mobile.changePage('#results');
-  getCount();
+  if (window.localStorage.getItem("course")) {
+    getCount();
+  }
+  else {
+    noCourseChosenDialog("Ingen kurs vald!", "Du måste välja en kurs för att kunna se resultaten. Vill du välja en kurs?");
+  }
+}
+
+function toLogin() {
+  $.mobile.changePage('#login');
 }
 
 //Get lectures from database depending on course chosen by user

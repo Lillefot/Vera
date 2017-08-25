@@ -17,6 +17,9 @@
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
 		90E1E18B7308F1572F140788 /* libPods-Vera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DED4C30C51603DAFC22D17 /* libPods-Vera.a */; };
 		92BAFA0BAC8343DDA32987E5 /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0E30367FC4F0F80975236 /* OneSignalPush.m */; };
+		8A21884F92224113B76EB18F /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C63B8275CCC5414DADF65415 /* CDVNotification.m */; };
+		6813F36378674A3F826995E3 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD46498E8D184508ADEF80CD /* CDVNotification.bundle */; };
+		3309D8C5F7CD427784AB89F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2496711A385947D78B9270EB /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,10 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Vera/config.xml; sourceTree = "<group>"; };
+		C63B8275CCC5414DADF65415 /* CDVNotification.m */ = {isa = PBXFileReference; name = "CDVNotification.m"; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		97F1C73A546D4BAB8553812B /* CDVNotification.h */ = {isa = PBXFileReference; name = "CDVNotification.h"; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		CD46498E8D184508ADEF80CD /* CDVNotification.bundle */ = {isa = PBXFileReference; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
+		2496711A385947D78B9270EB /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +88,7 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				5F27B8462D0448EDAAD6526B /* SystemConfiguration.framework in Frameworks */,
 				90E1E18B7308F1572F140788 /* libPods-Vera.a in Frameworks */,
+				3309D8C5F7CD427784AB89F4 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +153,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* Vera-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				CD46498E8D184508ADEF80CD /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = Vera/Resources;
@@ -155,6 +164,7 @@
 			children = (
 				46F1835AE7344A3EBBC0352D /* SystemConfiguration.framework */,
 				75DED4C30C51603DAFC22D17 /* libPods-Vera.a */,
+				2496711A385947D78B9270EB /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,6 +195,8 @@
 				401ACC78697A4F8F90E447A0 /* CDVStatusBar.h */,
 				3CD0E30367FC4F0F80975236 /* OneSignalPush.m */,
 				8C026B2954E741C3B6D6CD42 /* OneSignalPush.h */,
+				C63B8275CCC5414DADF65415 /* CDVNotification.m */,
+				97F1C73A546D4BAB8553812B /* CDVNotification.h */,
 			);
 			name = Plugins;
 			path = Vera/Plugins;
@@ -297,6 +309,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				6813F36378674A3F826995E3 /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +388,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				545D494853F548F58F9EA7BD /* CDVStatusBar.m in Sources */,
 				92BAFA0BAC8343DDA32987E5 /* OneSignalPush.m in Sources */,
+				8A21884F92224113B76EB18F /* CDVNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
