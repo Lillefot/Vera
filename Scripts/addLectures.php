@@ -1,8 +1,8 @@
 <?php
 
 //header("Location: index.html");
-require_once 'databaseCredentials.php';
-include 'parseICS.php';
+//require_once 'databaseCredentials.php';
+//include 'parseICS.php';
 
 //Grab event names and end times from parseICS.php
 $GLOBALS['globalEventTimeAndTitle'] = $eventTimeAndTitle;
@@ -58,6 +58,6 @@ endforeach;
 
 
 //Close connection
-mysqli_close($conn);
+//mysqli_close($conn);
 
 ?>
