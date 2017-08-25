@@ -224,7 +224,7 @@ function submitFormFromLockScreen(choice) {
     }
 
     //Set form variables
-    var comment = $('#q1comment').val();
+    var comment = ""; //Empty to prevent previous comment to be sent
     var user = window.localStorage.getItem("user");
     var courseID = $('#courseID').val();
     //var lectureName = document.getElementById('lectureName').value;
