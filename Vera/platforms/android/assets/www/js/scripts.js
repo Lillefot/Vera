@@ -30,6 +30,9 @@ function onDeviceReady() {
   badRadioButton = $('#q1r2');
   goodBadRadio = null;
   databasePHP = 'http://script.studieradet.se/vera/database.php';
+  device = device.platform;
+
+  console.log("Device = " + device);
 
   //Statusbar setup
   StatusBar.overlaysWebView(false);

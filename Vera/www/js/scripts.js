@@ -30,6 +30,7 @@ function onDeviceReady() {
   badRadioButton = $('#q1r2');
   goodBadRadio = null;
   databasePHP = 'http://script.studieradet.se/vera/database.php';
+  device = device.platform;
 
   //Statusbar setup
   StatusBar.overlaysWebView(false);
@@ -71,6 +72,7 @@ function onDeviceReady() {
     .startInit("26a295d6-af75-4d42-85a0-3c940d64868a")
     .iOSSettings(iosSettings)
     .handleNotificationOpened(notificationOpenedCallback)
+    .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.None)
     .endInit();
 
 
