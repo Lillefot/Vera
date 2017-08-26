@@ -1,0 +1,20 @@
+#iframeDiv {
+  padding: 0 0 0 0;
+}
+
+/* Smoother transition to statusbar */
+.ui-header {
+  border-top: none !important;
+}
+
+#courseText {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
