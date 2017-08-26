@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.msruu.vera" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.msruu.vera" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Vera</name>
     <description>
         A blank PhoneGap app.
@@ -28,9 +28,13 @@
         <splash height="1334" src="images/ios/splashscreens/Default-667h.png" width="750" />
         <splash height="2208" src="images/ios/splashscreens/Default-736h.png" width="1242" />
     </platform>
+    <config-file parent="/manifest" platform="android">
+        <application android:debuggable="true" />
+    </config-file>
+    <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-dialogs" spec="^1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="onesignal-cordova-plugin" spec="^2.1.2" />
-    <engine name="android" spec="~6.2.3" />
 </widget>

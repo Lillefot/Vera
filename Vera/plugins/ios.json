@@ -15,6 +15,9 @@
         },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.msruu.vera"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.msruu.vera"
         }
     },
     "dependent_plugins": {}
