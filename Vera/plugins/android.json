@@ -7,19 +7,19 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.msruu.vera"
+        },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.msruu.vera"
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.msruu.vera"
         },
-        "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.msruu.vera"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.msruu.vera"
         },
-        "cordova-plugin-device": {
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.msruu.vera"
         }
     },
