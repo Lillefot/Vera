@@ -31,7 +31,8 @@ $courseChoice = $_GET['courseChoice'];
 //echo 'courseChoice = ' . $courseChoice;
 }
 
-$courseTable = 'ResultsCourseID' . $courseChoice;
+$previousSemester = 'VT17';
+$courseTable = 'ResultsCourseID' . $courseChoice . $previousSemester;
 $sql = "SELECT * FROM $courseTable";
 $result = $conn->query($sql);
 

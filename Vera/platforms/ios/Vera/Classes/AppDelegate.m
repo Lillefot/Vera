@@ -42,9 +42,9 @@
     
     
     UNNotificationAction *goodAction = [UNNotificationAction actionWithIdentifier:@"Good"
-                                                                            title:@"Bra!" options:UNNotificationActionOptionNone];
+                                                                            title:@"Ja" options:UNNotificationActionOptionNone];
     UNNotificationAction *badAction = [UNNotificationAction actionWithIdentifier:@"Bad"
-                                                                           title:@"Dålig!" options: UNNotificationActionOptionNone];
+                                                                           title:@"Nej" options: UNNotificationActionOptionNone];
     UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"Vera"
                                                                               actions:@[goodAction,badAction] intentIdentifiers:@[]
                                                                               options:UNNotificationCategoryOptionNone];
@@ -64,11 +64,11 @@
     UIWebView * webView = (UIWebView *) self.viewController.webView;
     
     NSString *jsSetLectureName = @"setLectureName('');";
-    NSString *subtitle = response.notification.request.content.subtitle;
-    NSMutableString *jsSetLectureNameWithSubtitle = [NSMutableString stringWithString:jsSetLectureName];
-    [jsSetLectureNameWithSubtitle insertString:subtitle atIndex:16];
-    NSLog(@"%@", jsSetLectureNameWithSubtitle);
-    [webView stringByEvaluatingJavaScriptFromString:jsSetLectureNameWithSubtitle];
+    NSString *title = response.notification.request.content.title;
+    NSMutableString *jsSetLectureNameWithTitle = [NSMutableString stringWithString:jsSetLectureName];
+    [jsSetLectureNameWithTitle insertString:title atIndex:16];
+    NSLog(@"%@", jsSetLectureNameWithTitle);
+    [webView stringByEvaluatingJavaScriptFromString:jsSetLectureNameWithTitle];
     
     NSString *jsFunction = @"submitFormFromLockScreen('');";
     NSString *userChoice = response.actionIdentifier;
@@ -82,7 +82,7 @@
     //Called to let your app know which action was selected by the user for a given notification.
     NSLog((@"didReceiveNotifiacitonResponse"));
     NSLog(@"ActionButtonPressed %@",response.actionIdentifier);
-    NSLog(@"Subtitle %@", response.notification.request.content.subtitle);
+    NSLog(@"Title %@", response.notification.request.content.title);
     completionHandler();
 }
 

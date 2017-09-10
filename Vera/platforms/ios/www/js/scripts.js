@@ -73,7 +73,7 @@ function onDeviceReady() {
     .startInit("26a295d6-af75-4d42-85a0-3c940d64868a")
     .iOSSettings(iosSettings)
     .handleNotificationOpened(notificationOpenedCallback)
-    //.inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.None)
+    .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.None)
     .endInit();
 
 
@@ -135,7 +135,13 @@ function notificationOpenedCallback(jsonData) {
   console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
   console.log('Action Taken by User: ' + JSON.stringify(jsonData.action));
   if (device === "iOS"){
-    toForm(lectureNameFromLockScreen);
+    if (jsonData.action.type === 1) {
+      console.log("ActionButton Pressed, not going to form");
+    }
+    else {
+      toForm(lectureNameFromLockScreen);
+    }
+
   }
   else if (device === "Android"){
     console.log("Notification Title = " + jsonData.notification.payload.title);
@@ -219,6 +225,7 @@ function setSettingsCourse() {
 //Only for iOS: Set lectureName to subtitle of notification interacted with
 function setLectureName(subtitle){
   lectureNameFromLockScreen = subtitle;
+  console.log("setLectureName = " + subtitle);
 }
 
 //Submit form when app in foreground
