@@ -599,6 +599,7 @@ function listAllResults() {
     var wholeRowBackgroundColour = "#e9e9e9";
     colourGradient.setSpectrum('#ffaaaa', '#fffdaa', '#5bff4c');
 
+    //TODO: Change semester
     $('#resultsTable')
       .empty()
       .append('<thead><tr><th>Föreläsning</th><th>VT17%</th><th>Antal svar VT17</th><th>Mina svar</th></tr></thead>')

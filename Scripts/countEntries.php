@@ -33,7 +33,7 @@ $previousSemester = 'VT17';
 $courseTable = 'ResultsCourseID' . $courseChoice . $previousSemester;
 }
 
-$sql = "SELECT LectureID, LectureName, ChangesVT17 FROM Lectures WHERE CourseID = '$courseChoice'";
+$sql = "SELECT LectureID, LectureName, Changes FROM Lectures WHERE CourseID = '$courseChoice'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

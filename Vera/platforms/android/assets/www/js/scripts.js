@@ -135,7 +135,13 @@ function notificationOpenedCallback(jsonData) {
   console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
   console.log('Action Taken by User: ' + JSON.stringify(jsonData.action));
   if (device === "iOS"){
-    toForm(lectureNameFromLockScreen);
+    if (jsonData.action.type === 1) {
+      console.log("ActionButton Pressed, not going to form");
+    }
+    else {
+      toForm(lectureNameFromLockScreen);
+    }
+
   }
   else if (device === "Android"){
     console.log("Notification Title = " + jsonData.notification.payload.title);
@@ -219,6 +225,7 @@ function setSettingsCourse() {
 //Only for iOS: Set lectureName to subtitle of notification interacted with
 function setLectureName(subtitle){
   lectureNameFromLockScreen = subtitle;
+  console.log("setLectureName = " + subtitle);
 }
 
 //Submit form when app in foreground
@@ -592,6 +599,7 @@ function listAllResults() {
     var wholeRowBackgroundColour = "#e9e9e9";
     colourGradient.setSpectrum('#ffaaaa', '#fffdaa', '#5bff4c');
 
+    //TODO: Change semester
     $('#resultsTable')
       .empty()
       .append('<thead><tr><th>Föreläsning</th><th>VT17%</th><th>Antal svar VT17</th><th>Mina svar</th></tr></thead>')

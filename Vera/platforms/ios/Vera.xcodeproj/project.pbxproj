@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		18CA0E33EEB049F59980078F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97A7E4F91E348CBAF2C5A54 /* SystemConfiguration.framework */; };
@@ -449,6 +450,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Vera/Vera.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = Q56TE96Y6P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
