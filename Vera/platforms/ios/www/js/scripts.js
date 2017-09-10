@@ -30,6 +30,8 @@ function onDeviceReady() {
   badRadioButton = $('#q1r2');
   goodBadRadio = null;
   databasePHP = 'http://script.studieradet.se/vera/database.php';
+  device = device.platform;
+  console.log("Device = " + device);
 
   //Statusbar setup
   StatusBar.overlaysWebView(false);
@@ -71,6 +73,7 @@ function onDeviceReady() {
     .startInit("26a295d6-af75-4d42-85a0-3c940d64868a")
     .iOSSettings(iosSettings)
     .handleNotificationOpened(notificationOpenedCallback)
+    .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.None)
     .endInit();
 
 
@@ -130,8 +133,28 @@ function onDeviceReady() {
 //Callback when notification opened
 function notificationOpenedCallback(jsonData) {
   console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-  console.log('Action Taken by User: ' + JSON.stringify(jsonData.action.actionID));
-  toForm(lectureNameFromLockScreen);
+  console.log('Action Taken by User: ' + JSON.stringify(jsonData.action));
+  if (device === "iOS"){
+    if (jsonData.action.type === 1) {
+      console.log("ActionButton Pressed, not going to form");
+    }
+    else {
+      toForm(lectureNameFromLockScreen);
+    }
+
+  }
+  else if (device === "Android"){
+    console.log("Notification Title = " + jsonData.notification.payload.title);
+    lectureNameFromLockScreen = jsonData.notification.payload.title;
+    if (jsonData.action.type === 0) {
+      console.log("Action Type = " + jsonData.action.type);
+      toForm(lectureNameFromLockScreen);
+    }
+    else if (jsonData.action.type === 1){
+      console.log("Action Type if not 0 = " + jsonData.action.actionID);
+      submitFormFromLockScreen(jsonData.action.actionID);
+    }
+  }
 };
 
 //Set username to elements
@@ -199,9 +222,10 @@ function setSettingsCourse() {
   }
 }
 
-//Set lectureName to subtitle of notification interacted with
+//Only for iOS: Set lectureName to subtitle of notification interacted with
 function setLectureName(subtitle){
   lectureNameFromLockScreen = subtitle;
+  console.log("setLectureName = " + subtitle);
 }
 
 //Submit form when app in foreground

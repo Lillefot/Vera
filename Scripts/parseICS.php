@@ -1,6 +1,6 @@
 <?php
-include 'iCal/ICal.php';
-include 'iCal/Event.php';
+include 'ICal/ICal.php';
+include 'ICal/Event.php';
 
 //Required to accept AJAX-request
 header('Access-Control-Allow-Origin: *');

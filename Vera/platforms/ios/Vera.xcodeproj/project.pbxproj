@@ -5,21 +5,24 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
+		18CA0E33EEB049F59980078F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97A7E4F91E348CBAF2C5A54 /* SystemConfiguration.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		2E6CC40CD97048548778348C /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7EDD51C5B400F9D69C6C7 /* OneSignalPush.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
-		545D494853F548F58F9EA7BD /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD510D03A4F7A8B21834B /* CDVStatusBar.m */; };
-		5F27B8462D0448EDAAD6526B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F1835AE7344A3EBBC0352D /* SystemConfiguration.framework */; };
+		41E0D954E1684661B0D64D93 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1C3AC461EF40CE9A336A4B /* CDVStatusBar.m */; };
+		541479B641BADBBDAE70F2C3 /* libPods-Vera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D359AD001AD65AC68D9BBCF /* libPods-Vera.a */; };
+		6A07CE53AD634D909D5E7D59 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CA88DEA55748E797A6AF3D /* libz.tbd */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		90E1E18B7308F1572F140788 /* libPods-Vera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DED4C30C51603DAFC22D17 /* libPods-Vera.a */; };
-		92BAFA0BAC8343DDA32987E5 /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0E30367FC4F0F80975236 /* OneSignalPush.m */; };
-		8A21884F92224113B76EB18F /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C63B8275CCC5414DADF65415 /* CDVNotification.m */; };
-		6813F36378674A3F826995E3 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD46498E8D184508ADEF80CD /* CDVNotification.bundle */; };
-		3309D8C5F7CD427784AB89F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2496711A385947D78B9270EB /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A730F187E4224CFAB2A47A8C /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AB07E737434F29AA97E67E /* CDVNotification.m */; };
+		C0A7DF784E62425498C8D759 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28A0768C208B4931B851BDBB /* CDVNotification.bundle */; };
+		CCB4237C55304D569879CBBA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A60EFBBD4FD47908C0CBBD0 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E5F7E467DB4C43B4B74E4ED1 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4E30505BC24BCB93567114 /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,7 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
-		31C378DD1F4B6B4900E18A2C /* PBXContainerItemProxy */ = {
+		31EEE6311F5C3FDA003E88BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 			proxyType = 2;
@@ -51,6 +54,8 @@
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Vera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E8C451A10945659D9FC308 /* CDVNotification.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; };
+		28A0768C208B4931B851BDBB /* CDVNotification.bundle */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
@@ -60,24 +65,25 @@
 		3047A50F1AB8059700498E2A /* build-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-debug.xcconfig"; path = "cordova/build-debug.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
-		31C378DF1F4B6B4900E18A2C /* Vera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Vera.entitlements; path = Vera/Vera.entitlements; sourceTree = "<group>"; };
+		31EEE6331F5C3FDF003E88BB /* Vera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Vera.entitlements; path = Vera/Vera.entitlements; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Vera-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Vera-Prefix.pch"; sourceTree = "<group>"; };
-		3CD0E30367FC4F0F80975236 /* OneSignalPush.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = OneSignalPush.m; path = "onesignal-cordova-plugin/OneSignalPush.m"; sourceTree = "<group>"; };
-		401ACC78697A4F8F90E447A0 /* CDVStatusBar.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; };
-		46F1835AE7344A3EBBC0352D /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3D359AD001AD65AC68D9BBCF /* libPods-Vera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68FAEA6494FF472AA606F704 /* CDVStatusBar.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; };
+		6A60EFBBD4FD47908C0CBBD0 /* AudioToolbox.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = Vera/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		75DED4C30C51603DAFC22D17 /* libPods-Vera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C026B2954E741C3B6D6CD42 /* OneSignalPush.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = OneSignalPush.h; path = "onesignal-cordova-plugin/OneSignalPush.h"; sourceTree = "<group>"; };
+		7826E50F93AF411CB97B9433 /* OneSignalPush.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = OneSignalPush.h; path = "onesignal-cordova-plugin/OneSignalPush.h"; sourceTree = "<group>"; };
+		7B1C3AC461EF40CE9A336A4B /* CDVStatusBar.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; };
+		7BC7EDD51C5B400F9D69C6C7 /* OneSignalPush.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = OneSignalPush.m; path = "onesignal-cordova-plugin/OneSignalPush.m"; sourceTree = "<group>"; };
+		868DA7852D1A4F82AB5E5A75 /* CDVDevice.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Vera-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Vera-Info.plist"; path = "Vera/Vera-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		DC8DD510D03A4F7A8B21834B /* CDVStatusBar.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; };
+		A5AB07E737434F29AA97E67E /* CDVNotification.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; };
+		D5CA88DEA55748E797A6AF3D /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D97A7E4F91E348CBAF2C5A54 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Vera/config.xml; sourceTree = "<group>"; };
-		C63B8275CCC5414DADF65415 /* CDVNotification.m */ = {isa = PBXFileReference; name = "CDVNotification.m"; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		97F1C73A546D4BAB8553812B /* CDVNotification.h */ = {isa = PBXFileReference; name = "CDVNotification.h"; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		CD46498E8D184508ADEF80CD /* CDVNotification.bundle */ = {isa = PBXFileReference; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
-		2496711A385947D78B9270EB /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		FA4E30505BC24BCB93567114 /* CDVDevice.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +92,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				5F27B8462D0448EDAAD6526B /* SystemConfiguration.framework in Frameworks */,
-				90E1E18B7308F1572F140788 /* libPods-Vera.a in Frameworks */,
-				3309D8C5F7CD427784AB89F4 /* AudioToolbox.framework in Frameworks */,
+				6A07CE53AD634D909D5E7D59 /* libz.tbd in Frameworks */,
+				CCB4237C55304D569879CBBA /* AudioToolbox.framework in Frameworks */,
+				18CA0E33EEB049F59980078F /* SystemConfiguration.framework in Frameworks */,
+				541479B641BADBBDAE70F2C3 /* libPods-Vera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +126,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				31C378DF1F4B6B4900E18A2C /* Vera.entitlements */,
+				31EEE6331F5C3FDF003E88BB /* Vera.entitlements */,
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
 				EB87FDF11871DA420020F90C /* Staging */,
@@ -130,7 +137,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				44D326274DFD256B63C99879 /* Pods */,
+				D690995B3CD48CD8EED561B8 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -153,7 +160,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* Vera-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
-				CD46498E8D184508ADEF80CD /* CDVNotification.bundle */,
+				28A0768C208B4931B851BDBB /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = Vera/Resources;
@@ -162,9 +169,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				46F1835AE7344A3EBBC0352D /* SystemConfiguration.framework */,
-				75DED4C30C51603DAFC22D17 /* libPods-Vera.a */,
-				2496711A385947D78B9270EB /* AudioToolbox.framework */,
+				D5CA88DEA55748E797A6AF3D /* libz.tbd */,
+				6A60EFBBD4FD47908C0CBBD0 /* AudioToolbox.framework */,
+				D97A7E4F91E348CBAF2C5A54 /* SystemConfiguration.framework */,
+				3D359AD001AD65AC68D9BBCF /* libPods-Vera.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				301BF535109A57CC0062928A /* libCordova.a */,
-				31C378DE1F4B6B4900E18A2C /* Cordova.framework */,
+				31EEE6321F5C3FDA003E88BB /* Cordova.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,18 +199,20 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				DC8DD510D03A4F7A8B21834B /* CDVStatusBar.m */,
-				401ACC78697A4F8F90E447A0 /* CDVStatusBar.h */,
-				3CD0E30367FC4F0F80975236 /* OneSignalPush.m */,
-				8C026B2954E741C3B6D6CD42 /* OneSignalPush.h */,
-				C63B8275CCC5414DADF65415 /* CDVNotification.m */,
-				97F1C73A546D4BAB8553812B /* CDVNotification.h */,
+				FA4E30505BC24BCB93567114 /* CDVDevice.m */,
+				868DA7852D1A4F82AB5E5A75 /* CDVDevice.h */,
+				A5AB07E737434F29AA97E67E /* CDVNotification.m */,
+				26E8C451A10945659D9FC308 /* CDVNotification.h */,
+				7B1C3AC461EF40CE9A336A4B /* CDVStatusBar.m */,
+				68FAEA6494FF472AA606F704 /* CDVStatusBar.h */,
+				7BC7EDD51C5B400F9D69C6C7 /* OneSignalPush.m */,
+				7826E50F93AF411CB97B9433 /* OneSignalPush.h */,
 			);
 			name = Plugins;
 			path = Vera/Plugins;
 			sourceTree = SOURCE_ROOT;
 		};
-		44D326274DFD256B63C99879 /* Pods */ = {
+		D690995B3CD48CD8EED561B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -225,13 +235,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Vera" */;
 			buildPhases = (
-				A46448C926980D4770488B1B /* [CP] Check Pods Manifest.lock */,
+				CCA342518F5846F6333CAA0F /* [CP] Check Pods Manifest.lock */,
 				304B58A110DAC018002A0835 /* Copy www directory */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				4E956D040FC874A15AD1CDA6 /* [CP] Embed Pods Frameworks */,
-				EA7C7EBA5E03C9DEE3EDAF1D /* [CP] Copy Pods Resources */,
+				254FF83CC4B1008A49C95181 /* [CP] Embed Pods Frameworks */,
+				BE1DD3FC346E4D4B3F0670CE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,11 +302,11 @@
 			remoteRef = 301BF534109A57CC0062928A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		31C378DE1F4B6B4900E18A2C /* Cordova.framework */ = {
+		31EEE6321F5C3FDA003E88BB /* Cordova.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Cordova.framework;
-			remoteRef = 31C378DD1F4B6B4900E18A2C /* PBXContainerItemProxy */;
+			remoteRef = 31EEE6311F5C3FDA003E88BB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -309,13 +319,28 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
-				6813F36378674A3F826995E3 /* CDVNotification.bundle in Resources */,
+				C0A7DF784E62425498C8D759 /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		254FF83CC4B1008A49C95181 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vera/Pods-Vera-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		304B58A110DAC018002A0835 /* Copy www directory */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,37 +356,7 @@
 			shellScript = "NODEJS_PATH=/usr/local/bin; NVM_NODE_PATH=~/.nvm/versions/node/`nvm version 2>/dev/null`/bin; N_NODE_PATH=`find /usr/local/n/versions/node/* -maxdepth 0 -type d 2>/dev/null | tail -1`/bin; XCODE_NODE_PATH=`xcode-select --print-path`/usr/share/xcs/Node/bin; PATH=$NODEJS_PATH:$NVM_NODE_PATH:$N_NODE_PATH:$XCODE_NODE_PATH:$PATH && node cordova/lib/copy-www-build-step.js";
 			showEnvVarsInLog = 0;
 		};
-		4E956D040FC874A15AD1CDA6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vera/Pods-Vera-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A46448C926980D4770488B1B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EA7C7EBA5E03C9DEE3EDAF1D /* [CP] Copy Pods Resources */ = {
+		BE1DD3FC346E4D4B3F0670CE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,6 +371,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vera/Pods-Vera-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CCA342518F5846F6333CAA0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -386,9 +396,10 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				545D494853F548F58F9EA7BD /* CDVStatusBar.m in Sources */,
-				92BAFA0BAC8343DDA32987E5 /* OneSignalPush.m in Sources */,
-				8A21884F92224113B76EB18F /* CDVNotification.m in Sources */,
+				E5F7E467DB4C43B4B74E4ED1 /* CDVDevice.m in Sources */,
+				A730F187E4224CFAB2A47A8C /* CDVNotification.m in Sources */,
+				41E0D954E1684661B0D64D93 /* CDVStatusBar.m in Sources */,
+				2E6CC40CD97048548778348C /* OneSignalPush.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +450,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Vera/Vera.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = Q56TE96Y6P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -457,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -476,7 +489,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Debug;
 		};
@@ -484,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -502,7 +515,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Release;
 		};

@@ -4,18 +4,25 @@
     "displayName": "Vera",
     "cordova": {
         "platforms": [
+            "android",
             "ios"
         ],
         "plugins": {
             "onesignal-cordova-plugin": {},
             "cordova-plugin-statusbar": {},
-            "cordova-plugin-dialogs": {}
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-device": {}
         }
     },
     "dependencies": {
+        "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
+        "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-dialogs": "^1.3.3",
         "cordova-plugin-statusbar": "^2.2.3",
+        "cordova-plugin-whitelist": "^1.3.2",
+        "device": "^0.3.8",
         "onesignal-cordova-plugin": "^2.1.2"
     }
 }
