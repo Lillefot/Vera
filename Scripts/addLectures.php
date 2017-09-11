@@ -1,8 +1,8 @@
 <?php
 
 //header("Location: index.html");
-//require_once 'databaseCredentials.php';
-//include 'parseICS.php';
+require_once 'databaseCredentials.php';
+include 'parseICS.php';
 
 //Grab event names and end times from parseICS.php
 $GLOBALS['globalEventTimeAndTitle'] = $eventTimeAndTitle;
@@ -28,7 +28,7 @@ if (!mysqli_set_charset($conn, "utf8")) {
 
 //Get form variables
 //Get user set CourseID
-$GLOBALS['globalCourseID'] = mysqli_real_escape_string($conn, $_REQUEST['courseID']);
+$GLOBALS['globalCourseID'] = $_GET['courseID'];
 
 //Add lecture to Lecture table together with user set Course ID.
 //Database will assign unique Lecture ID
