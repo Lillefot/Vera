@@ -136,7 +136,13 @@ function notificationOpenedCallback(jsonData) {
   console.log('Action Taken by User: ' + JSON.stringify(jsonData.action));
   if (device === "iOS"){
     if (jsonData.action.type === 1) {
-      console.log("ActionButton Pressed, not going to form");
+      if (jsonData.action.actionID === "Comment"){
+        console.log("Comment-Action-Button pressed, going to form");
+        toForm(lectureNameFromLockScreen);
+      }
+      else {
+        console.log("Good/Bad-Action-Button pressed, not going to form");
+      }
     }
     else {
       toForm(lectureNameFromLockScreen);
@@ -151,8 +157,14 @@ function notificationOpenedCallback(jsonData) {
       toForm(lectureNameFromLockScreen);
     }
     else if (jsonData.action.type === 1){
-      console.log("Action Type if not 0 = " + jsonData.action.actionID);
-      submitFormFromLockScreen(jsonData.action.actionID);
+      if (jsonData.action.actionID === "Comment"){
+        console.log("Comment-Action-Button pressed, going to form");
+        toForm(lectureNameFromLockScreen);
+      }
+      else {
+        console.log("Action Type if not 0 = " + jsonData.action.actionID);
+        submitFormFromLockScreen(jsonData.action.actionID);
+      }
     }
   }
 };

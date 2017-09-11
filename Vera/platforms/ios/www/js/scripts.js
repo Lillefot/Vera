@@ -136,7 +136,13 @@ function notificationOpenedCallback(jsonData) {
   console.log('Action Taken by User: ' + JSON.stringify(jsonData.action));
   if (device === "iOS"){
     if (jsonData.action.type === 1) {
-      console.log("ActionButton Pressed, not going to form");
+      if (jsonData.action.actionID === "Comment"){
+        console.log("Comment-Action-Button pressed, going to form");
+        toForm(lectureNameFromLockScreen);
+      }
+      else {
+        console.log("Good/Bad-Action-Button pressed, not going to form");
+      }
     }
     else {
       toForm(lectureNameFromLockScreen);
@@ -151,8 +157,14 @@ function notificationOpenedCallback(jsonData) {
       toForm(lectureNameFromLockScreen);
     }
     else if (jsonData.action.type === 1){
-      console.log("Action Type if not 0 = " + jsonData.action.actionID);
-      submitFormFromLockScreen(jsonData.action.actionID);
+      if (jsonData.action.actionID === "Comment"){
+        console.log("Comment-Action-Button pressed, going to form");
+        toForm(lectureNameFromLockScreen);
+      }
+      else {
+        console.log("Action Type if not 0 = " + jsonData.action.actionID);
+        submitFormFromLockScreen(jsonData.action.actionID);
+      }
     }
   }
 };
@@ -599,6 +611,7 @@ function listAllResults() {
     var wholeRowBackgroundColour = "#e9e9e9";
     colourGradient.setSpectrum('#ffaaaa', '#fffdaa', '#5bff4c');
 
+    //TODO: Change semester
     $('#resultsTable')
       .empty()
       .append('<thead><tr><th>Föreläsning</th><th>VT17%</th><th>Antal svar VT17</th><th>Mina svar</th></tr></thead>')

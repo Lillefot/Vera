@@ -45,8 +45,10 @@
                                                                             title:@"Ja" options:UNNotificationActionOptionNone];
     UNNotificationAction *badAction = [UNNotificationAction actionWithIdentifier:@"Bad"
                                                                            title:@"Nej" options: UNNotificationActionOptionNone];
+    UNNotificationAction *commentAction = [UNNotificationAction actionWithIdentifier:@"Comment"
+                                                                           title:@"Kommentar" options: UNNotificationActionOptionForeground];
     UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"Vera"
-                                                                              actions:@[goodAction,badAction] intentIdentifiers:@[]
+                                                                              actions:@[goodAction,badAction,commentAction] intentIdentifiers:@[]
                                                                               options:UNNotificationCategoryOptionNone];
     NSSet *categories = [NSSet setWithObject:category];
     [center setNotificationCategories:categories];
