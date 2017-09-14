@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
 }
 
 else {
-  echo 'Error: Select FROM ' . $courseTable . ' ' . $conn->error;
+  echo 'Error: haveAnswered.php Select FROM ' . $courseTable . ' ' . $conn->error;
 }
 
 echo json_encode($list);

@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
   $lectures = $row;
 }
 else {
-  echo 'Error: Select FROM Lectures' . ' ' . $conn->error;
+  echo 'Error: countEntries.php: Lectures Select FROM Lectures' . ' ' . $conn->error;
 }
 
 $sql = "SELECT LectureID, count(1) FROM $courseTable WHERE GoodBad = 1 GROUP BY LectureID";
@@ -54,7 +54,7 @@ if ($result->num_rows > 0) {
   //echo json_encode($countGoodArray);
 }
 else {
-  echo 'Error: Select FROM ' . $courseTable . ' ' . $conn->error;
+  echo 'Error: countEntries.php: Good Select FROM ' . $courseTable . ' ' . $conn->error;
 }
 
 $sql = "SELECT LectureID, count(1) FROM $courseTable GROUP BY LectureID";
@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
   //echo json_encode($countTotalArray);
 }
 else {
-  echo 'Error: Select FROM ' . $courseTable . ' ' . $conn->error;
+  echo 'Error: Select FROM countEntries.php: Bad ' . $courseTable . ' ' . $conn->error;
 }
 
 $countGoodTotalArray = [];
