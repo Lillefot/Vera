@@ -126,6 +126,8 @@ function onDeviceReady() {
     //Clear form
     clearForm();
     var chosenLecture = $('#lectureName').val();
+    $('#lectureText').empty();
+    $('#lectureText').append(chosenLecture);
     getLectureGoalsFromDB(chosenLecture);
   });
 }
