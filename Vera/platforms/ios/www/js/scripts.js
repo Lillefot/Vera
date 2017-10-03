@@ -28,7 +28,7 @@ function onDeviceReady() {
   // alert('Device Ready!');
   goodRadioButton = $('#q1r1');
   badRadioButton = $('#q1r2');
-  goodBadRadio = null;
+  //goodBadRadio = null;
   databasePHP = 'http://script.studieradet.se/vera/database.php';
   device = device.platform;
   console.log("Device = " + device);
@@ -245,6 +245,7 @@ function setLectureName(subtitle){
 //Submit form when app in foreground
 function submitForm(type) {
   console.log('Checking form!')
+  goodBadRadio = null;
 
   //Set depending on user choice of radio button
   if (goodRadioButton.is(":checked")) {
@@ -275,22 +276,27 @@ function submitForm(type) {
     var url = "http://script.studieradet.se/vera/databaseFromAJAXUpdate.php";
   }
 
-  $.ajax({
-    url: url,
-    data: {comment: comment, goodBad: goodBadRadio, user: user, courseID: courseID, lectureName: lectureName},
-    success: function(data){
-      if (data.indexOf('Success!') >= 0){
-        alert('Tack för ditt svar!');
+  if ((goodBadRadio !== null) && (lectureName !== "Välj föreläsning!")) {
+    $.ajax({
+      url: url,
+      data: {comment: comment, goodBad: goodBadRadio, user: user, courseID: courseID, lectureName: lectureName},
+      success: function(data){
+        if (data.indexOf('Success!') >= 0){
+          alert('Tack för ditt svar!');
+        }
+        else if (data.indexOf('failed') >= 0){
+          console.warn(data);
+          alert('Gick inte att få kontakt med databasen!');
+        }
+        else {
+          alert('Det gick inte att skicka in ditt svar!');
+        }
       }
-      else if (data.indexOf('failed') >= 0){
-        console.warn(data);
-        alert('Gick inte att få kontakt med databasen!');
-      }
-      else {
-        alert('Det gick inte att skicka in ditt svar!');
-      }
-    }
-  });
+    });
+  }
+  else {
+    alert('Det gick inte att skicka in ditt svar! Kolla om du har valt en föreläsning och fyllt i ett svar.');
+  }
 
   }
 
@@ -432,7 +438,7 @@ function lectureSelectFromDB(choice, fromResultsOrLS, fromResultsPage) {
         var myarray = JSON.parse(data);
         console.log(myarray);
         //Empty lecture selector
-        var defaultOption = "<option> Välj föreläsning! </option>";
+        var defaultOption = "<option>Välj föreläsning!</option>";
         $('#lectureName')
           .empty()
           .append(defaultOption);

@@ -109,7 +109,7 @@ function onDeviceReady() {
         event.preventDefault(); //Prevents double tap which causes a tap on elements on the new page
         var lectureName = $(this).children('.nameCell').text();
         console.log(lectureName);
-        toForm(lectureName);
+        toForm(lectureName, true);
   });
 
   $(document).on("tap", "#changeCourse", function() {
@@ -126,6 +126,8 @@ function onDeviceReady() {
     //Clear form
     clearForm();
     var chosenLecture = $('#lectureName').val();
+    $('#lectureText').empty();
+    $('#lectureText').append(chosenLecture);
     getLectureGoalsFromDB(chosenLecture);
   });
 }
@@ -136,10 +138,16 @@ function notificationOpenedCallback(jsonData) {
   console.log('Action Taken by User: ' + JSON.stringify(jsonData.action));
   if (device === "iOS"){
     if (jsonData.action.type === 1) {
-      console.log("ActionButton Pressed, not going to form");
+      if (jsonData.action.actionID === "Comment"){
+        console.log("Comment-Action-Button pressed, going to form");
+        toForm(lectureNameFromLockScreen, false);
+      }
+      else {
+        console.log("Good/Bad-Action-Button pressed, not going to form");
+      }
     }
     else {
-      toForm(lectureNameFromLockScreen);
+      toForm(lectureNameFromLockScreen, false);
     }
 
   }
@@ -148,11 +156,17 @@ function notificationOpenedCallback(jsonData) {
     lectureNameFromLockScreen = jsonData.notification.payload.title;
     if (jsonData.action.type === 0) {
       console.log("Action Type = " + jsonData.action.type);
-      toForm(lectureNameFromLockScreen);
+      toForm(lectureNameFromLockScreen, false);
     }
     else if (jsonData.action.type === 1){
-      console.log("Action Type if not 0 = " + jsonData.action.actionID);
-      submitFormFromLockScreen(jsonData.action.actionID);
+      if (jsonData.action.actionID === "Comment"){
+        console.log("Comment-Action-Button pressed, going to form");
+        toForm(lectureNameFromLockScreen, false);
+      }
+      else {
+        console.log("Action Type if not 0 = " + jsonData.action.actionID);
+        submitFormFromLockScreen(jsonData.action.actionID);
+      }
     }
   }
 };
@@ -288,34 +302,38 @@ function submitFormFromLockScreen(choice) {
     if (choice === 'Good') {
       goodBad = 1;
       console.log('goodBad = ' + goodBad);
+      sendForm();
     }
     else if (choice === 'Bad') {
       goodBad = 0;
       console.log('goodBad = ' + goodBad);
+      sendForm();
     }
     else {
       console.log('No choice made');
     }
 
     //Set form variables
-    var comment = ""; //Empty to prevent previous comment to be sent
-    var user = window.localStorage.getItem("user");
-    var courseID = $('#courseID').val();
-    //var lectureName = document.getElementById('lectureName').value;
+    function sendForm() {
+      var comment = ""; //Empty to prevent previous comment to be sent
+      var user = window.localStorage.getItem("user");
+      var courseID = $('#courseID').val();
+      //var lectureName = document.getElementById('lectureName').value;
 
-    //Send form to database
-    var xhr = new XMLHttpRequest();
-    var url = "http://script.studieradet.se/vera/databaseFromAJAX.php";
-    var url = url + "?comment=" + comment + "&goodBad=" + goodBad + "&user=" + user + "&courseID=" + courseID + "&lectureName=" + lectureNameFromLockScreen;
-    xhr.onreadystatechange = function () {
-        //Run on success
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('Form submitted!');
-        }
-    };
-    //Must be synchronus to keep the app awake long enough for request to finish
-    xhr.open("GET", url, false);
-    xhr.send(null);
+      //Send form to database
+      var xhr = new XMLHttpRequest();
+      var url = "http://script.studieradet.se/vera/databaseFromAJAX.php";
+      var url = url + "?comment=" + comment + "&goodBad=" + goodBad + "&user=" + user + "&courseID=" + courseID + "&lectureName=" + lectureNameFromLockScreen;
+      xhr.onreadystatechange = function () {
+          //Run on success
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              console.log('Form submitted!');
+          }
+      };
+      //Must be synchronus to keep the app awake long enough for request to finish
+      xhr.open("GET", url, false);
+      xhr.send(null);
+    }
   }
 
 //Clear username from elements and localStorage
@@ -353,13 +371,14 @@ function clearUser() {
 
 //Change page to form
 //Add lectureName to make selector preselect chosen lecture
-function toForm(lectureName){
+function toForm(lectureName, fromResultsPage){
+  console.log("toForm, lectureName = " + lectureName);
   $.mobile.changePage('#form')
   if (window.localStorage.getItem("course")) {
     $('#submitNewButton').closest('.ui-btn').show();
     $('#submitUpdateButton').closest('.ui-btn').hide();
     //Get lectures depending on course chosen
-    lectureSelectFromDB(window.localStorage.getItem("course"), lectureName);
+    lectureSelectFromDB(window.localStorage.getItem("course"), lectureName, fromResultsPage);
     getLectureGoalsFromDB(lectureName);
   }
   else {
@@ -402,7 +421,7 @@ function toLogin() {
 }
 
 //Get lectures from database depending on course chosen by user
-function lectureSelectFromDB(choice, fromResults) {
+function lectureSelectFromDB(choice, fromResultsOrLS, fromResultsPage) {
   console.log('lectureSelectFromDB');
 
   $.ajax({
@@ -424,11 +443,20 @@ function lectureSelectFromDB(choice, fromResults) {
           optn.value = myarray.data[i][0];  //!!! Is, and should be, set to name of lecture
           document.getElementById('lectureName').options.add(optn);
         }
-        if (fromResults) {
-          console.log('fromResults = ' + fromResults);
-          var value = 'option[value="' + fromResults + '"]';
+        if (fromResultsOrLS) {
+          console.log('fromResultsOrLS = ' + fromResultsOrLS);
+          var value = 'option[value="' + fromResultsOrLS + '"]';
           $('select[name="lectureName"]').find(value).attr("selected",true).change();
-          getPreviousAnswer(fromResults);
+          console.log('lectureName.val() = ' + $('#lectureName').val());
+          console.log($('select[name="lectureName"]').find(value));
+          if (fromResultsPage === true){
+            console.log("From resuts page, fetching previous answer");
+            getPreviousAnswer(fromResultsOrLS);
+          }
+          else {
+            console.log("From lockscreen, not fetching previous answer");
+          }
+
         }
       }
       else if (data.indexOf('failed') >= 0){
